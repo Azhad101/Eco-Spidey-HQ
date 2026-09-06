@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eco-Spidey HQ — Delhi Civic Command & Analytics Center</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+  <!-- Leaflet Map CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ======================================================== -->
+  <!-- BIG SPIDER LOGO AT THE BACK (GLITCH EFFECT)              -->
+  <!-- ======================================================== -->
+  <div class="big-spider-bg-glitch" aria-hidden="true">
+    <img src="assets/eco-spidey-emblem.png" alt="Big Glitch Spider Logo">
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- HEADER & NAVIGATION (WITH GLITCH SPIDER LOGO)            -->
+  <!-- ======================================================== -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="#command" class="brand">
+        <!-- Spider Logo with Glitch Animation -->
+        <div class="spider-logo-glitch" title="Spider-Verse Glitch Logo">
+          <img src="assets/eco-spidey-emblem.png" alt="Eco-Spidey Logo">
+        </div>
+        <span class="text-glitch">Eco-Spidey <span class="highlight-red">HQ</span></span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#command" class="nav-link">Command</a>
+        <a href="#map" class="nav-link">Live Map & Issues</a>
+        <a href="#analytics" class="nav-link">Authority Analytics</a>
+        <a href="#board" class="nav-link">Hero Board</a>
+        <a href="#poses" class="nav-link">Action Poses</a>
+        <a href="#quotes" class="nav-link">Spidey Creed</a>
+        <a href="#report" class="nav-link highlight-red">Report Sighting</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======================================================== -->
+    <!-- HERO / COMMAND SECTION (SPIDEY PIC 1)                    -->
+    <!-- ======================================================== -->
+    <section id="command" class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-kicker">
+            <span class="kicker-line"></span>
+            <div class="spider-logo-glitch" style="margin-right: 6px;">
+              <img src="assets/eco-spidey-emblem.png" style="height: 18px; width: 18px;" alt="Spider Icon">
+            </div>
+            LIVE CIVIC RESPONSE NETWORK • DELHI SECTOR
+          </div>
+
+          <h1 class="hero-title">
+            Clean streets.<br>
+            <span class="highlight-red">Stronger</span><br>
+            neighborhoods.
+          </h1>
+
+          <p class="hero-text">
+            Eco-Spidey HQ turns everyday citizen reports into rapid cleanup missions across Delhi. Upload photos, track issue resolution in real time, and upvote critical neighborhood hotspots before sunrise.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#map" class="btn btn-primary">
+              <span class="spider-logo-glitch"><img src="assets/eco-spidey-emblem.png" style="height: 14px; width: 14px;" alt=""></span>
+              View Live Delhi Map &rarr;
+            </a>
+            <a href="#report" class="btn btn-secondary">📷 Report with Photo</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-value" id="analytics-total">04</div>
+              <div class="stat-label">Active Issues</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="analytics-upvotes">214</div>
+              <div class="stat-label">Citizen Upvotes</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="analytics-resolved-stat">78%</div>
+              <div class="stat-label">Resolution Rate</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">18.4T</div>
+              <div class="stat-label">Impact Logged</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-image-wrap">
+          <div class="hero-glow"></div>
+          <!-- Spider-Man Hero Picture 1 -->
+          <img src="assets/eco-spidey-hero.png" alt="Eco-Spidey Hero on Rooftop" class="hero-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- SECTION 01: LIVE INTERACTIVE MAP & STATUS TRACKING (SPIDEY PIC 2) -->
+    <!-- ======================================================== -->
+    <section id="map" class="section-wrapper">
+      <div class="container">
+        <div class="section-header-flex">
+          <div>
+            <div class="section-kicker">01 / Live Civic Map & Issues</div>
+            <h2 class="section-title">See Delhi. Move with purpose.</h2>
+            <p class="section-copy">
+              Explore civic hotspots across Delhi. Click markers to view photographic evidence, upvote priority issues, and track status from Reported to In Progress to Resolved.
+            </p>
+          </div>
+
+          <!-- Spider-Man Section Sticker 2 -->
+          <div class="spidey-section-sticker">
+            <div class="spider-logo-glitch">
+              <img src="assets/eco-spidey-emblem.png" alt="Spidey Surveillance">
+            </div>
+            <div>
+              <div class="sticker-text">Sector Radar: Online</div>
+              <div style="font-size: 9px; color: var(--color-muted);">Live Delhi GPS Feed</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-layout">
+          <!-- Interactive Map Container -->
+          <div class="map-container">
+            <div class="map-badge">
+              <span class="ping-dot"></span>
+              DELHI / LIVE CIVIC RADAR
+            </div>
+            <div id="delhi-map"></div>
+          </div>
+
+          <!-- Delhi Issues Sidebar with Filters & Upvoting -->
+          <div>
+            <!-- Status Filter Buttons -->
+            <div class="map-filter-bar">
+              <button class="filter-btn active" data-filter="all">All Issues</button>
+              <button class="filter-btn" data-filter="reported">🔴 Reported</button>
+              <button class="filter-btn" data-filter="in_progress">🟡 In Progress</button>
+              <button class="filter-btn" data-filter="resolved">🟢 Resolved</button>
+            </div>
+
+            <!-- Scrollable Issues List -->
+            <div class="issues-scroll-list" id="issues-list-container">
+              <!-- Rendered Dynamically by script.js -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- SECTION 02: ANALYTICS FOR AUTHORITIES (SPIDEY PIC 3)     -->
+    <!-- ======================================================== -->
+    <section id="analytics" class="section-wrapper analytics-section">
+      <div class="container">
+        <div class="section-header-flex">
+          <div>
+            <div class="section-kicker">02 / Municipal Analytics</div>
+            <h2 class="section-title">Data for Municipal Authorities</h2>
+            <p class="section-copy">
+              Real-time civic intelligence: track resolution velocity, hotspot severity by Delhi sector, and citizen upvoting density to deploy cleaning squads where they are needed most.
+            </p>
+          </div>
+
+          <!-- Action Button to Download/Export Report -->
+          <div>
+            <button id="export-analytics-btn" class="btn btn-primary btn-sm">
+              📥 Export Authority Report (JSON)
+            </button>
+          </div>
+        </div>
+
+        <!-- 4 Key KPI Cards -->
+        <div class="analytics-grid">
+          <div class="analytics-card">
+            <div class="analytics-card-title">Total Issues Logged</div>
+            <div class="analytics-card-num highlight-red" id="analytics-total-card">4</div>
+            <div class="analytics-card-sub">Recorded with GPS & photo evidence</div>
+          </div>
+
+          <div class="analytics-card">
+            <div class="analytics-card-title">Reported (Pending)</div>
+            <div class="analytics-card-num highlight-red" id="analytics-reported">2</div>
+            <div class="analytics-card-sub">Awaiting squad deployment</div>
+          </div>
+
+          <div class="analytics-card">
+            <div class="analytics-card-title">In Progress</div>
+            <div class="analytics-card-num" style="color: var(--color-amber);" id="analytics-progress">1</div>
+            <div class="analytics-card-sub">Crews active on site</div>
+          </div>
+
+          <div class="analytics-card">
+            <div class="analytics-card-title">Resolved & Verified</div>
+            <div class="analytics-card-num" style="color: var(--color-green);" id="analytics-resolved">1</div>
+            <div class="analytics-card-sub">Cleared & verified clean</div>
+          </div>
+        </div>
+
+        <!-- Analytics Breakdown Panels -->
+        <div class="analytics-panels">
+          <!-- Hotspots by Delhi Zone -->
+          <div class="analytics-panel">
+            <div class="panel-heading">
+              <span>📍 Top Affected Delhi Sectors</span>
+              <img src="assets/eco-spidey-emblem.png" style="height: 24px;" alt="Spider Icon">
+            </div>
+            <div class="metric-bar-group">
+              <div class="metric-row">
+                <div class="metric-row-labels">
+                  <span>Connaught Place (CP)</span>
+                  <span id="meter-cp-text">1 issue</span>
+                </div>
+                <div class="metric-track">
+                  <div class="metric-fill" id="meter-cp" style="width: 80%; background: var(--color-signal);"></div>
+                </div>
+              </div>
+
+              <div class="metric-row">
+                <div class="metric-row-labels">
+                  <span>Chandni Chowk / Old Delhi</span>
+                  <span id="meter-cc-text">1 issue</span>
+                </div>
+                <div class="metric-track">
+                  <div class="metric-fill" id="meter-cc" style="width: 90%; background: var(--color-signal);"></div>
+                </div>
+              </div>
+
+              <div class="metric-row">
+                <div class="metric-row-labels">
+                  <span>India Gate Lawns</span>
+                  <span id="meter-ig-text">1 issue</span>
+                </div>
+                <div class="metric-track">
+                  <div class="metric-fill" id="meter-ig" style="width: 60%; background: var(--color-amber);"></div>
+                </div>
+              </div>
+
+              <div class="metric-row">
+                <div class="metric-row-labels">
+                  <span>Hauz Khas Village</span>
+                  <span id="meter-hk-text">1 issue</span>
+                </div>
+                <div class="metric-track">
+                  <div class="metric-fill" id="meter-hk" style="width: 40%; background: var(--color-green);"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category Breakdown -->
+          <div class="analytics-panel">
+            <div class="panel-heading">
+              <span>🗑️ Issue Category Breakdown</span>
+              <span style="font-size: 11px; color: var(--color-muted);">Verified Reports</span>
+            </div>
+            <div class="metric-bar-group">
+              <div class="metric-row">
+                <div class="metric-row-labels">
+                  <span>Illegal Dump & Commercial Waste</span>
+                  <span id="meter-dump-text">2 issues</span>
+                </div>
+                <div class="metric-track">
+                  <div class="metric-fill" id="meter-dump" style="width: 85%; background: var(--color-signal);"></div>
+                </div>
+              </div>
+
+              <div class="metric-row">
+                <div class="metric-row-labels">
+                  <span>Single-Use Plastics & Bottles</span>
+                  <span id="meter-plastic-text">1 issue</span>
+                </div>
+                <div class="metric-track">
+                  <div class="metric-fill" id="meter-plastic" style="width: 50%; background: var(--color-electric);"></div>
+                </div>
+              </div>
+
+              <div class="metric-row">
+                <div class="metric-row-labels">
+                  <span>Waterway / Drainage Obstruction</span>
+                  <span id="meter-water-text">1 issue</span>
+                </div>
+                <div class="metric-track">
+                  <div class="metric-fill" id="meter-water" style="width: 40%; background: var(--color-green);"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- SECTION 03: HERO LEADERBOARD (SPIDEY PIC 4)               -->
+    <!-- ======================================================== -->
+    <section id="board" class="section-wrapper">
+      <div class="container">
+        <div class="board-grid">
+          <div>
+            <div class="section-kicker">03 / Hero Board</div>
+            <h2 class="section-title">Proof beats applause.</h2>
+            <p class="section-copy">
+              The leaders moving the needle on the streets of Delhi, measured in verified cleanups logged, material recovered, and neighborhood upvotes won.
+            </p>
+            <a href="#report" class="btn btn-secondary" style="margin-top: 24px;">Join the Squad &rarr;</a>
+
+            <!-- Spider-Man Landing Pose Graphic (Pic 4) -->
+            <div style="margin-top: 36px; max-width: 240px; border: 1px solid rgba(244,246,248,0.1); padding: 8px; background: rgba(18,24,36,0.6);">
+              <img src="assets/eco-spidey-poses.png" alt="Spider-Man Action Pose" style="width: 100%; height: 120px; object-fit: cover; object-position: 100% 0%;">
+              <div style="font-size: 10px; font-weight: 800; text-transform: uppercase; color: var(--color-signal); margin-top: 6px; text-align: center;">Active Hero Rank #1</div>
+            </div>
+          </div>
+
+          <div class="score-list">
+            <div class="score-row">
+              <span class="score-num">01</span>
+              <div>
+                <span class="score-alias">Webwright</span>
+                <span class="score-sector">Sector 04 (CP)</span>
+                <div class="score-meta">38 missions • 2,410 kg recovered • 89 upvotes</div>
+              </div>
+            </div>
+
+            <div class="score-row">
+              <span class="score-num">02</span>
+              <div>
+                <span class="score-alias">Skyline Scout</span>
+                <span class="score-sector">Sector 07 (Old Delhi)</span>
+                <div class="score-meta">31 missions • 1,980 kg recovered • 64 upvotes</div>
+              </div>
+            </div>
+
+            <div class="score-row">
+              <span class="score-num">03</span>
+              <div>
+                <span class="score-alias">Harbor Hand</span>
+                <span class="score-sector">Sector 02 (South Delhi)</span>
+                <div class="score-meta">26 missions • 1,540 kg recovered • 51 upvotes</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pillars of Action -->
+        <div class="pillars-grid">
+          <div class="pillar-card">
+            <div class="highlight-red" style="font-size: 28px;">📡</div>
+            <h3 class="pillar-title">Signal</h3>
+            <p class="pillar-body">Spot it. Take a photo. Pin the Delhi hotspot. Send exact coordinates to the command center.</p>
+          </div>
+          <div class="pillar-card">
+            <div class="highlight-red" style="font-size: 28px;">🎯</div>
+            <h3 class="pillar-title">Deploy</h3>
+            <p class="pillar-body">Turn a waste sighting into an immediate neighborhood crew response with civic tracking.</p>
+          </div>
+          <div class="pillar-card">
+            <div class="highlight-red" style="font-size: 28px;">🛡️</div>
+            <h3 class="pillar-title">Clear</h3>
+            <p class="pillar-body">Close the loop, verify cleanliness with follow-up photos, and log real civic impact into the database.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- SECTION 04: TACTICAL SPIDEY ACTION POSES (SLIDES / CAROUSEL) -->
+    <!-- ======================================================== -->
+    <section id="poses" class="section-wrapper">
+      <div class="container">
+        <div class="section-header-flex">
+          <div>
+            <div class="section-kicker">04 / Tactical Pose Archive</div>
+            <h2 class="section-title">Spider-Verse Action Poses</h2>
+            <p class="section-copy">
+              Explore the distinct operational action stances utilized during Delhi civic response and cleanup operations. Slide through tactical modes.
+            </p>
+          </div>
+
+          <div class="spidey-section-sticker">
+            <div class="spider-logo-glitch">
+              <img src="assets/eco-spidey-emblem.png" alt="Tactical Logo">
+            </div>
+            <div>
+              <div class="sticker-text">Pose Tracker: 4 Active</div>
+              <div style="font-size: 9px; color: var(--color-muted);">Slide for More</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="poses-slider-container">
+          <div class="poses-slider-track" id="poses-track">
+            <!-- Slide 1: The Skyline Crawl -->
+            <div class="pose-slide">
+              <div class="pose-img-frame">
+                <div class="pose-badge">Pose 01 • Scouting</div>
+                <div class="pose-crop pose-crop-1"></div>
+              </div>
+              <div class="pose-info">
+                <div class="pose-rank">Primary Recon Stance</div>
+                <h3 class="pose-title">The Skyline Crawl</h3>
+                <p class="pose-desc">
+                  Low-profile wall and rooftop crawl used for aerial spotting of illegal commercial dumping and plastic accumulations in Old Delhi and congested market lanes.
+                </p>
+                <div class="pose-stats-grid">
+                  <div class="pose-stat-box">
+                    <div class="pose-stat-val">96%</div>
+                    <div class="pose-stat-lbl">Stealth & Spotting</div>
+                  </div>
+                  <div class="pose-stat-box">
+                    <div class="pose-stat-val">CP & Chandni</div>
+                    <div class="pose-stat-lbl">Primary Sectors</div>
+                  </div>
+                  <div class="pose-stat-box">
+                    <div class="pose-stat-val">Night Recon</div>
+                    <div class="pose-stat-lbl">Optimal Time</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2: The Superhero Landing -->
+            <div class="pose-slide">
+              <div class="pose-img-frame">
+                <div class="pose-badge">Pose 02 • Deployment</div>
+                <div class="pose-crop pose-crop-2"></div>
+              </div>
+              <div class="pose-info">
+                <div class="pose-rank">Ground Impact Stance</div>
+                <h3 class="pose-title">Superhero Landing</h3>
+                <p class="pose-desc">
+                  High-velocity descent executed when touching down at critical civic hotspots. Absorbs kinetic energy while deploying initial containment barriers.
+                </p>
+                <div class="pose-stats-grid">
+                  <div class="pose-stat-box">
+                    <div class="pose-stat-val">99%</div>
+                    <div class="pose-stat-lbl">Impact Readiness</div>
+                  </div>
+                  <div class="pose-stat-box">
+                    <div class="pose-stat-val">India Gate</div>
+                    <div class="pose-stat-lbl">Primary Sectors</div>
+                  </div>
+                  <div class="pose-stat-box">
+                    <div class="pose-stat-val">Instant Response</div>
+                    <div class="pose-stat-lbl">Tactical Role</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3: Webline Transit -->
+            <div class="pose-slide">
+              <div class="pose-img-frame">
+                <div class="pose-badge">Pose 03 • Mobility</div>
+                <div class="pose-crop pose-crop-3"></div>
+              </div>
+              <div class="pose-info">
+                <div class="pose-rank">High-Speed Transit</div>
+                <h3 class="pose-title">Webline Transit</h3>
+                <p class="pose-desc">
+                  Aerial swinging dynamics bridging Delhi transit corridors. Carries waste containment canisters between sectors at breakneck speed.
+                </p>
+                <div class="pose-stats-grid">
+                  <div class="pose-stat-box">
+                    <div class="pose-stat-val">120 km/h</div>
+                    <div class="pose-stat-lbl">Transit Velocity</div>
+                  </div>
+                  <div class="pose-stat-box">
+                    <div class="pose-stat-val">Ring Road Hubs</div>
+                    <div class="pose-stat-lbl">Primary Sectors</div>
+                  </div>
+                  <div class="pose-stat-box">
+                    <div class="pose-stat-val">Canister Transport</div>
+                    <div class="pose-stat-lbl">Payload Capacity</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 4: Webshot Containment -->
+            <div class="pose-slide">
+              <div class="pose-img-frame">
+                <div class="pose-badge">Pose 04 • Web Action</div>
+                <div class="pose-crop pose-crop-4"></div>
+              </div>
+              <div class="pose-info">
+                <div class="pose-rank">Active Hazard Securing</div>
+                <h3 class="pose-title">Webshot Containment</h3>
+                <p class="pose-desc">
+                  Rapid-fire biodegradable web fluid shot directly at flying debris, toxic plastics, and waterway obstructions to bundle them safely for disposal.
+                </p>
+                <div class="pose-stats-grid">
+                  <div class="pose-stat-box">
+                    <div class="pose-stat-val">100%</div>
+                    <div class="pose-stat-lbl">Biodegradable Web</div>
+                  </div>
+                  <div class="pose-stat-box">
+                    <div class="pose-stat-val">Hauz Khas Lake</div>
+                    <div class="pose-stat-lbl">Primary Sectors</div>
+                  </div>
+                  <div class="pose-stat-box">
+                    <div class="pose-stat-val">2.5s Lock</div>
+                    <div class="pose-stat-lbl">Containment Speed</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slider Controls -->
+          <div class="slider-controls">
+            <button class="slider-btn" id="pose-prev-btn" aria-label="Previous Pose">&larr;</button>
+            <div class="slider-dots" id="pose-dots">
+              <button class="slider-dot active" data-index="0" aria-label="Slide 1"></button>
+              <button class="slider-dot" data-index="1" aria-label="Slide 2"></button>
+              <button class="slider-dot" data-index="2" aria-label="Slide 3"></button>
+              <button class="slider-dot" data-index="3" aria-label="Slide 4"></button>
+            </div>
+            <button class="slider-btn" id="pose-next-btn" aria-label="Next Pose">&rarr;</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- SECTION 05: SPIDEY CREED & QUOTATIONS (SPIDEY PIC 5)     -->
+    <!-- ======================================================== -->
+    <section id="quotes" class="section-wrapper">
+      <div class="container">
+        <div class="section-header-flex">
+          <div>
+            <div class="section-kicker">05 / Spidey Creed</div>
+            <h2 class="section-title">Wisdom from the web.</h2>
+            <p class="section-copy">
+              Every hero in the Spider-Verse lives by a code. Transforming neighborhoods and streets starts with everyday courage, resilience, and accountability.
+            </p>
+          </div>
+
+          <!-- Glitch Spidey Logo 5 -->
+          <div class="spider-logo-glitch">
+            <img src="assets/eco-spidey-emblem.png" alt="Spidey Creed Logo">
+          </div>
+        </div>
+
+        <div class="quotes-grid">
+          <!-- Quote 1 -->
+          <div class="quote-card">
+            <div class="quote-tag">Rule #1</div>
+            <div>
+              <div class="quote-mark">&ldquo;</div>
+              <p class="quote-text">With great power comes great responsibility.</p>
+            </div>
+            <div class="quote-author">
+              <div class="quote-name">Peter Parker</div>
+              <div class="quote-desc">The Core Creed</div>
+            </div>
+          </div>
+
+          <!-- Quote 2 -->
+          <div class="quote-card">
+            <div class="quote-tag">Belief</div>
+            <div>
+              <div class="quote-mark">&ldquo;</div>
+              <p class="quote-text">Anyone can wear the mask. You could wear the mask. If you didn't know that before, I hope you do now.</p>
+            </div>
+            <div class="quote-author">
+              <div class="quote-name">Miles Morales</div>
+              <div class="quote-desc">Spider-Verse Legacy</div>
+            </div>
+          </div>
+
+          <!-- Quote 3 -->
+          <div class="quote-card">
+            <div class="quote-tag">Courage</div>
+            <div>
+              <div class="quote-mark">&ldquo;</div>
+              <p class="quote-text">It's a leap of faith. That's all it is, Miles. A leap of faith.</p>
+            </div>
+            <div class="quote-author">
+              <div class="quote-name">Peter B. Parker</div>
+              <div class="quote-desc">Into the Spider-Verse</div>
+            </div>
+          </div>
+
+          <!-- Quote 4 -->
+          <div class="quote-card">
+            <div class="quote-tag">Tenacity</div>
+            <div>
+              <div class="quote-mark">&ldquo;</div>
+              <p class="quote-text">No matter how many hits I take, I always find a way to come back. Because this city needs me.</p>
+            </div>
+            <div class="quote-author">
+              <div class="quote-name">Spider-Man</div>
+              <div class="quote-desc">Resilience & Purpose</div>
+            </div>
+          </div>
+
+          <!-- Quote 5 -->
+          <div class="quote-card">
+            <div class="quote-tag">Choice</div>
+            <div>
+              <div class="quote-mark">&ldquo;</div>
+              <p class="quote-text">We are who we choose to be. Now choose!</p>
+            </div>
+            <div class="quote-author">
+              <div class="quote-name">Spider-Man (2002)</div>
+              <div class="quote-desc">Choice & Destiny</div>
+            </div>
+          </div>
+
+          <!-- Quote 6 -->
+          <div class="quote-card">
+            <div class="quote-tag">Vigilance</div>
+            <div>
+              <div class="quote-mark">&ldquo;</div>
+              <p class="quote-text">In my universe, I'm the one who stands between the innocent and the dark.</p>
+            </div>
+            <div class="quote-author">
+              <div class="quote-name">Gwen Stacy</div>
+              <div class="quote-desc">Across the Spider-Verse</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- SECTION 05: REPORT CIVIC SIGHTING WITH PHOTO (SPIDEY PIC 6) -->
+    <!-- ======================================================== -->
+    <section id="report" class="section-wrapper report-section">
+      <div class="container report-grid">
+        <div>
+          <div class="section-kicker" style="color: rgba(244,246,248,0.8);">05 / Report Civic Issue</div>
+          <h2 class="section-title">See something?<br><span style="color: var(--bg-ink);">Spin a signal.</span></h2>
+          <p style="color: rgba(244,246,248,0.85); font-size: 16px; margin-top: 16px;">
+            Upload photographic evidence and descriptions directly to the Delhi Civic Command database. Citizens can immediately upvote and track resolution.
+          </p>
+
+          <!-- Spider-Man Poses Action Banner (Pic 6) -->
+          <div style="margin-top: 28px; position: relative;">
+            <div class="spider-logo-glitch" style="position: absolute; top: -14px; left: -10px; z-index: 10;">
+              <img src="assets/eco-spidey-emblem.png" style="height: 32px; width: 32px;" alt="">
+            </div>
+            <img src="assets/eco-spidey-poses.png" alt="Eco-Spidey Hero Poses" style="width: 100%; border: 1px solid rgba(244,246,248,0.2); box-shadow: 0 10px 30px rgba(0,0,0,0.4); opacity: 0.9;">
+          </div>
+        </div>
+
+        <div class="report-form-box">
+          <!-- Success Card -->
+          <div id="report-success" style="display: none; text-align: center; padding: 40px 0;">
+            <div class="spider-logo-glitch" style="margin-bottom: 12px;">
+              <img src="assets/eco-spidey-emblem.png" style="height: 48px; width: 48px;" alt="">
+            </div>
+            <h3 style="font-family: var(--font-display); font-size: 32px; text-transform: uppercase;">Signal Recorded!</h3>
+            <p style="color: var(--color-muted); font-size: 14px; margin-top: 10px;">
+              Your civic report with photo has been stored in the Delhi Civic Database. It is now live on the interactive map for upvoting!
+            </p>
+            <button id="file-another-btn" class="btn btn-secondary" style="margin-top: 24px;">Report Another Issue</button>
+          </div>
+
+          <!-- Report Form with Storage Base & Photo Upload -->
+          <form id="report-form">
+            <div style="border-bottom: 1px solid rgba(244,246,248,0.1); padding-bottom: 16px; margin-bottom: 20px;">
+              <span style="font-size: 10px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--color-electric);">Open Channel • Delhi Sector</span>
+              <h3 style="font-family: var(--font-display); font-size: 28px; text-transform: uppercase; margin-top: 4px;">New Civic Report</h3>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Issue Title</label>
+              <input type="text" id="report-title" required placeholder="e.g. Broken bin overflow & plastic bottles" class="form-input">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Delhi Location / Landmark</label>
+              <input type="text" id="report-location" required placeholder="e.g. Connaught Place Inner Circle, Hauz Khas Village..." class="form-input">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Category</label>
+              <select id="report-category" class="form-select">
+                <option value="Garbage Dump">Garbage & Waste Dump</option>
+                <option value="Plastic Waste">Single-Use Plastics & Bottles</option>
+                <option value="Waterway Waste">Waterway / Drain Blockage</option>
+                <option value="Construction Rubble">Construction Debris</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Priority Level</label>
+              <select id="report-severity" class="form-select">
+                <option value="critical">Critical (Immediate danger/overflow)</option>
+                <option value="amber" selected>Needs attention</option>
+                <option value="clear">Routine cleanup</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Description / Field Notes</label>
+              <textarea id="report-desc" rows="3" required placeholder="Describe what you observed, exact block or landmark instructions..." class="form-textarea"></textarea>
+            </div>
+
+            <!-- Photo Upload with Preview -->
+            <div class="form-group">
+              <label class="form-label">Attach Photo Evidence (Storage Base)</label>
+              <label class="photo-upload-box" for="report-photo">
+                <div style="font-size: 24px; margin-bottom: 4px;">📸</div>
+                <div style="font-size: 12px; font-weight: 700;">Click to upload photo of the issue</div>
+                <div style="font-size: 10px; color: var(--color-muted);">Supports PNG, JPG, WebP</div>
+              </label>
+              <input type="file" id="report-photo" accept="image/*" style="display: none;">
+
+              <!-- Image Preview Container -->
+              <div class="photo-preview-container" id="photo-preview-container">
+                <img src="" alt="Photo Preview" class="photo-preview-img" id="photo-preview-img">
+                <button type="button" class="remove-photo-btn" id="remove-photo-btn" title="Remove photo">&times;</button>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 12px;">
+              Transmit Report to Command &rarr;
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================================================== -->
+  <!-- FOOTER (SPIDEY EMBLEM)                                   -->
+  <!-- ======================================================== -->
+  <footer class="footer container">
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <div class="spider-logo-glitch">
+        <img src="assets/eco-spidey-emblem.png" style="height: 24px; width: 24px;" alt="">
+      </div>
+      <span>Eco-Spidey HQ / Civic response network • Delhi Sector</span>
+    </div>
+    <span>With great power comes great responsibility.</span>
+  </footer>
+
+  <!-- Leaflet Map JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <!-- Supabase JS Client Library -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
